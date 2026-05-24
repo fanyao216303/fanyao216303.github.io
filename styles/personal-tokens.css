@@ -30,23 +30,23 @@
   --color-line: rgba(255, 255, 255, 0.10);
   --color-line-strong: rgba(255, 255, 255, 0.22);
 
-  /* 主点缀色：酒红（比参考图深一档，更沉稳） */
-  /* 注：变量名沿用 --color-gold 以最小化改动；语义上现在是酒红 */
-  --color-gold: #A21D26;
-  --color-gold-deep: #7E1219;
-  --color-gold-soft: rgba(162, 29, 38, 0.20);
+  /* 主点缀色：玫红 */
+  /* 注：变量名沿用 --color-gold 以最小化改动；语义上现在是玫红 */
+  --color-gold: #C2185B;
+  --color-gold-deep: #880E4F;
+  --color-gold-soft: rgba(194, 24, 91, 0.20);
 
   /* 辅助点缀（数据高亮等场景） */
-  --color-magenta: #C8232C;      /* 偏亮的酒红，用于数字、强调 */
-  --color-magenta-deep: #861318;
+  --color-magenta: #E91E63;      /* 偏亮的玫红，用于数字、强调 */
+  --color-magenta-deep: #AD1457;
   --color-electric: #2A4A78;     /* 深蓝（次点缀，用于第二种区分色） */
   --color-electric-deep: #173256;
   --color-orange: #B89559;       /* 暗金，作为辅助暖色（不抢主） */
 
-  /* 渐变：酒红为主 + 深蓝作底色拉伸 */
-  --gradient-hero: linear-gradient(135deg, #A21D26 0%, #C8232C 50%, #7E1219 100%);
-  --gradient-band: linear-gradient(90deg, #A21D26 0%, #C8232C 50%, #2A4A78 100%);
-  --gradient-cta:  linear-gradient(135deg, #C8232C 0%, #A21D26 100%);
+  /* 渐变：玫红为主 + 深蓝作底色拉伸 */
+  --gradient-hero: linear-gradient(135deg, #C2185B 0%, #E91E63 50%, #880E4F 100%);
+  --gradient-band: linear-gradient(90deg, #C2185B 0%, #E91E63 50%, #2A4A78 100%);
+  --gradient-cta:  linear-gradient(135deg, #E91E63 0%, #C2185B 100%);
 
   /* ============ 字体 ============ */
   --font-serif:    "Alibaba-PuHuiTi-Medium", "PingFang SC", "Microsoft YaHei", -apple-system, sans-serif;
@@ -339,7 +339,7 @@ h1, h2, h3, h4, h5, h6,
 /* 副标题强调数字：酒红色高亮底 */
 .hero-sub strong {
   color: var(--color-ink);
-  background: linear-gradient(180deg, transparent 65%, rgba(162, 29, 38, 0.45) 65%);
+  background: linear-gradient(180deg, transparent 65%, rgba(194, 24, 91, 0.45) 65%);
 }
 
 .hero-title {
@@ -482,7 +482,7 @@ h1, h2, h3, h4, h5, h6,
 .pillar-icon {
   background: rgba(255, 255, 255, 0.04);
   color: var(--color-gold);
-  border: 1px solid rgba(162, 29, 38, 0.32);
+  border: 1px solid rgba(194, 24, 91, 0.32);
 }
 
 .pillar-card:hover .pillar-icon {
@@ -924,13 +924,13 @@ section {
   }
 
   .section-head::before {
-    color: #7E1219 !important; /* 打印时编号用深酒红 */
+    color: #880E4F !important; /* 打印时编号用深玫红 */
   }
 }
 
 /* 项目卡片图文版 —— 人物专题金/酒红覆盖 */
 .project-image {
-  background: linear-gradient(135deg, rgba(201, 165, 107, 0.18) 0%, rgba(162, 29, 38, 0.10) 100%);
+  background: linear-gradient(135deg, rgba(201, 165, 107, 0.18) 0%, rgba(194, 24, 91, 0.10) 100%);
 }
 
 .project-card--imaged:hover {
