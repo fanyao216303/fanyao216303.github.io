@@ -1,7 +1,7 @@
 /* =========================================================================
-   Banma Tokens —— 斑马百科字体风格变体
-   字体：Alibaba-PuHuiTi-Medium（强调）+ PingFang SC（正文）
-   特点：现代、规整、亲和、教育感；不用衬线，不用 Playfair
+   Banma Tokens v2 —— 暗黑专题官网风（参考"明星 IP 官网"视觉语言）
+   字体方案沿用斑马百科：Alibaba-PuHuiTi-Medium + PingFang SC
+   配色重做：深灰底 + 白字 + 金色点缀 + 编号 / 双语标题
    ========================================================================= */
 
 @font-face {
@@ -13,41 +13,47 @@
 }
 
 :root {
-  /* ------------ 颜色（保留原项目体系，微调以贴合斑马的明亮稳重感） ------------ */
-  --color-cream: #FAF7F2;
-  --color-cream-deep: #F2EDE3;
-  --color-paper: #FFFFFF;
-  --color-ink: #2C3E50;        /* 改用斑马 body 的深蓝灰 #2C3E50，比纯墨黑更亲和 */
-  --color-ink-2: #4A5868;
-  --color-ink-3: #7B8794;
-  --color-ink-4: #A4ADB8;
-  --color-line: #E5E1D8;
-  --color-line-strong: #C9C4B6;
+  /* ============ 颜色（暗黑专题风） ============ */
+  /* 三层底色：最深 hero/footer / 主底 / 次底 */
+  --color-cream: #14141A;        /* 主底（原"米白"位） */
+  --color-cream-deep: #1F1F26;   /* 次底（原"奶油"位，用于 stats、timeline 段） */
+  --color-paper: #20202A;        /* 卡片底（原"白"位） */
+  --color-deepest: #0A0A0E;      /* 最深底（hero、footer 用） */
 
+  /* 文字（反转） */
+  --color-ink: #FFFFFF;
+  --color-ink-2: rgba(255, 255, 255, 0.78);
+  --color-ink-3: rgba(255, 255, 255, 0.55);
+  --color-ink-4: rgba(255, 255, 255, 0.38);
+
+  /* 分割线（暗色细线） */
+  --color-line: rgba(255, 255, 255, 0.10);
+  --color-line-strong: rgba(255, 255, 255, 0.20);
+
+  /* 主点缀色：金色（来自参考画面的暖金调） */
+  --color-gold: #C9A56B;
+  --color-gold-deep: #A88349;
+  --color-gold-soft: rgba(201, 165, 107, 0.18);
+
+  /* 保留品红/电光蓝/暖橙作为高亮锚点（用在数字、CTA、渐变上） */
   --color-magenta: #FF2E63;
   --color-magenta-deep: #D9134A;
   --color-electric: #2D6CDF;
   --color-electric-deep: #1A4FB3;
   --color-orange: #FF8A3D;
 
-  --gradient-hero: linear-gradient(135deg, #FF2E63 0%, #FF8A3D 60%, #FFC857 100%);
-  --gradient-band: linear-gradient(90deg, #FF2E63 0%, #FF8A3D 50%, #2D6CDF 100%);
-  --gradient-cta:  linear-gradient(135deg, #FF2E63 0%, #2D6CDF 100%);
+  /* 渐变重做：金色为主 + 品红/暖橙作锚 */
+  --gradient-hero: linear-gradient(135deg, #C9A56B 0%, #FF8A3D 60%, #FF2E63 100%);
+  --gradient-band: linear-gradient(90deg, #C9A56B 0%, #FF8A3D 50%, #FF2E63 100%);
+  --gradient-cta:  linear-gradient(135deg, #C9A56B 0%, #FF8A3D 100%);
 
-  /* ------------ 字体：斑马风格 ------------ */
-  /* 强调字体（标题、数字、装饰大字）：阿里巴巴普惠体 Medium */
-  --font-serif: "Alibaba-PuHuiTi-Medium", "PingFang SC", "Microsoft YaHei", -apple-system, sans-serif;
-
-  /* 正文：苹方 */
-  --font-sans:  "PingFang SC", "PingFangSC-Regular", "Helvetica Neue", "Microsoft YaHei", -apple-system, sans-serif;
-
-  /* 英文 / 装饰小标 */
-  --font-display: "Alibaba-PuHuiTi-Medium", "Avenir Next", "Avenir", "Helvetica Neue", sans-serif;
-
-  /* 数字 */
+  /* ============ 字体 ============ */
+  --font-serif:    "Alibaba-PuHuiTi-Medium", "PingFang SC", "Microsoft YaHei", -apple-system, sans-serif;
+  --font-sans:     "PingFang SC", "PingFangSC-Regular", "Helvetica Neue", "Microsoft YaHei", -apple-system, sans-serif;
+  --font-display:  "Alibaba-PuHuiTi-Medium", "Avenir Next", "Avenir", "Helvetica Neue", sans-serif;
   --font-mono-num: "Alibaba-PuHuiTi-Medium", "PingFang SC", "Helvetica Neue", -apple-system, sans-serif;
 
-  /* ------------ 字号阶梯（比原版略收，让整体更"规整"） ------------ */
+  /* ============ 字号 / 行高 ============ */
   --fs-hero: clamp(2.5rem, 5.4vw, 4.75rem);
   --fs-h1:   clamp(1.875rem, 3.4vw, 2.75rem);
   --fs-h2:   clamp(1.4rem, 2.2vw, 2rem);
@@ -56,9 +62,8 @@
   --fs-body: 1rem;
   --fs-sm:   0.875rem;
   --fs-xs:   0.75rem;
-  --fs-stat: clamp(2.25rem, 4.4vw, 3.5rem);
+  --fs-stat: clamp(2.5rem, 5vw, 4.25rem);
 
-  /* 行高（中文黑体偏宽松更舒适） */
   --lh-tight: 1.18;
   --lh-snug:  1.4;
   --lh-base:  1.7;
@@ -81,25 +86,25 @@
   --radius-xl: 24px;
   --radius-pill: 999px;
 
-  --shadow-sm: 0 1px 2px rgba(44, 62, 80, 0.04), 0 1px 3px rgba(44, 62, 80, 0.06);
-  --shadow:    0 4px 12px rgba(44, 62, 80, 0.06), 0 2px 4px rgba(44, 62, 80, 0.04);
-  --shadow-lg: 0 16px 40px rgba(44, 62, 80, 0.10), 0 4px 12px rgba(44, 62, 80, 0.06);
-  --shadow-magenta: 0 12px 32px rgba(255, 46, 99, 0.18);
+  /* 阴影改用浅金色光晕，深色底下普通阴影看不见 */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow:    0 4px 16px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 18px 48px rgba(0, 0, 0, 0.55);
+  --shadow-magenta: 0 12px 32px rgba(201, 165, 107, 0.28);
 
   --max-w: 1200px;
-  --nav-h: 64px;
+  --nav-h: 68px;
   --transition: 0.32s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 /* =========================================================================
-   斑马风格细节修正：
-   原版很多地方写死了 .hero-title 的 font-weight: 800、letter-spacing: -0.02em，
-   这在普惠体上会过紧/过粗，需要松一些
+   1. 字体覆盖（沿用 banma v1 的处理）
    ========================================================================= */
 
 body {
   font-family: var(--font-sans);
   letter-spacing: 0;
+  background: var(--color-cream) !important;
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -113,14 +118,14 @@ h1, h2, h3, h4, h5, h6,
 .footer-tagline,
 .collage-caption-name {
   font-family: var(--font-serif);
-  font-weight: 400;        /* 普惠体 Medium 已经是中等字重，不需再 bold */
-  letter-spacing: 0.005em; /* 中文字符稍微留点呼吸 */
+  font-weight: 400;
+  letter-spacing: 0.005em;
 }
 
-/* Hero 主标题：原版用衬线大字+紧字距，斑马风格要更"友好" */
 .hero-title {
   letter-spacing: 0;
   line-height: 1.18;
+  color: var(--color-ink);
 }
 
 .hero-title em,
@@ -128,7 +133,6 @@ h1, h2, h3, h4, h5, h6,
   font-style: normal;
 }
 
-/* 数据卡片大数字 */
 .stat-number,
 .case-stat-value {
   font-family: var(--font-mono-num);
@@ -136,8 +140,12 @@ h1, h2, h3, h4, h5, h6,
   letter-spacing: 0;
 }
 
-/* 编辑型小标签（eyebrow、masthead、caption-no 等英文小字）
-   斑马风格不用 Playfair italic，改成普惠体的字距加大 */
+/* 移除原项目里所有 italic（普惠体没有 italic 字形） */
+.collage-bg-text,
+.collage-caption-name em,
+.collage-caption-role,
+.case-stat-value .unit,
+.stat-number .unit,
 .eyebrow,
 .collage-caption-no,
 .collage-masthead-vol,
@@ -148,58 +156,721 @@ h1, h2, h3, h4, h5, h6,
 .footer-contact-label {
   font-family: var(--font-display);
   font-style: normal !important;
-  letter-spacing: 0.18em;
   font-weight: 400;
 }
 
-/* caption 中的英文人名："Fan Yao" 不再用 Playfair italic */
-.collage-caption-name em,
-.case-stat-value .unit,
-.stat-number .unit,
-.collage-caption-role {
-  font-family: var(--font-display);
-  font-style: normal !important;
-  font-weight: 400;
+.eyebrow,
+.collage-caption-no,
+.case-period,
+.project-eyebrow,
+.hero-contact-label,
+.footer-contact-label {
+  letter-spacing: 0.22em;
 }
 
-/* footer 标语保留，但去掉过紧的字距 */
 .footer-tagline {
   letter-spacing: 0;
   line-height: 1.25;
 }
 
-/* 装饰文字（背景大字 FY）原本是 Playfair italic，在斑马风格里改用普惠体大粗字 */
-.collage-bg-text {
-  font-family: var(--font-display);
-  font-style: normal !important;
-  -webkit-text-stroke-width: 2px;
-  letter-spacing: 0;
+/* =========================================================================
+   2. 板块标题：大编号 + 中英双语版式（参考画面核心特征）
+   ========================================================================= */
+
+.section-head {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: start;
+  position: relative;
+  padding-bottom: var(--space-6);
+  margin-bottom: var(--space-8);
+  border-bottom: 1px solid var(--color-line);
 }
 
-/* 数据 / 数字配色更"教育平台"：电光蓝替代品红做主点缀（更稳重） */
+/* 左侧大编号（金色、超大字号） */
+.section-head::before {
+  content: attr(data-no);
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 7vw, 5.75rem);
+  line-height: 0.85;
+  font-weight: 400;
+  color: var(--color-gold);
+  letter-spacing: -0.02em;
+  /* 让"01"看起来更像编号——加细线尾巴 */
+  position: relative;
+  padding-right: 1.5rem;
+}
+
+.section-head::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 1rem;
+  width: 60px;
+  height: 1px;
+  background: var(--color-gold);
+}
+
+/* 右侧标题区：英文小字在上、中文大字在中、引导句在下 */
+.section-head > .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: var(--space-4);
+}
+
+.section-head > .eyebrow::before {
+  background: var(--color-gold);
+  width: 32px;
+}
+
+.section-head > .section-title {
+  color: var(--color-ink);
+  font-size: var(--fs-h1);
+  line-height: 1.18;
+  margin-bottom: var(--space-4);
+}
+
+.section-head > .section-title em {
+  background: var(--gradient-cta);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.section-head > .section-lead {
+  color: var(--color-ink-3);
+  font-size: var(--fs-h4);
+  max-width: 60ch;
+}
+
+/* =========================================================================
+   3. 顶部导航：暗色玻璃质感
+   ========================================================================= */
+
+.site-nav {
+  background: rgba(20, 20, 26, 0.78) !important;
+  backdrop-filter: saturate(180%) blur(16px);
+  -webkit-backdrop-filter: saturate(180%) blur(16px);
+}
+
+.site-nav.is-scrolled {
+  background: rgba(20, 20, 26, 0.95) !important;
+  border-bottom-color: var(--color-line) !important;
+}
+
+.brand,
+.brand-mark {
+  color: var(--color-ink);
+}
+
+.brand-mark {
+  color: var(--color-gold);
+}
+
+.brand-sub {
+  color: var(--color-ink-3);
+}
+
+.nav-links a {
+  color: var(--color-ink-2);
+}
+
+.nav-links a:hover,
+.nav-links a.is-active {
+  color: var(--color-gold);
+}
+
+.nav-links a::after {
+  background: var(--color-gold);
+}
+
+.nav-cta {
+  background: var(--color-gold);
+  color: var(--color-deepest);
+}
+
+.nav-cta:hover {
+  background: var(--color-ink);
+  color: var(--color-gold);
+}
+
+.nav-toggle-bar,
+.nav-toggle-bar::before,
+.nav-toggle-bar::after {
+  background: var(--color-ink);
+}
+
+/* =========================================================================
+   4. Hero：暗色 + 金色装饰条
+   ========================================================================= */
+
+.hero {
+  background:
+    radial-gradient(900px 400px at 88% 0%, rgba(201, 165, 107, 0.12), transparent 60%),
+    radial-gradient(700px 500px at -10% 110%, rgba(45, 108, 223, 0.08), transparent 60%),
+    var(--color-deepest) !important;
+}
+
+.hero-bg-decor .grid-line {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.hero-meta {
+  color: var(--color-ink-3);
+}
+
+.hero-meta .dot {
+  background: var(--color-gold);
+}
+
+.hero-title {
+  color: var(--color-ink);
+}
+
+.hero-title em {
+  background: var(--gradient-cta);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-title .accent::after {
+  background: rgba(201, 165, 107, 0.20);
+}
+
+.hero-sub {
+  color: var(--color-ink-2);
+}
+
+/* CTA 按钮 */
+.btn-primary {
+  background: var(--color-gold);
+  color: var(--color-deepest);
+  border-color: var(--color-gold);
+}
+
+.btn-primary:hover {
+  background: var(--color-ink);
+  color: var(--color-gold);
+}
+
+.btn-ghost {
+  border-color: var(--color-line-strong);
+  color: var(--color-ink);
+  background: transparent;
+}
+
+.btn-ghost:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+
+.hero-contact {
+  border-top-color: var(--color-line);
+}
+
+.hero-contact-label {
+  color: var(--color-gold);
+}
+
+.hero-contact-value {
+  color: var(--color-ink);
+}
+
+.scroll-cue {
+  color: var(--color-ink-3);
+}
+
+.scroll-cue::after {
+  background: var(--color-ink-3);
+}
+
+.hero-band {
+  background: var(--gradient-band);
+}
+
+/* =========================================================================
+   5. 数据看板：白色超大数字 + 暗色卡片网格
+   ========================================================================= */
+
+#stats {
+  background: var(--color-cream-deep) !important;
+}
+
+.stats-grid {
+  background: var(--color-cream-deep);
+  border-color: var(--color-line);
+}
+
+.stat-card {
+  background: transparent !important;
+  border-color: var(--color-line);
+}
+
+.stat-card:hover {
+  background: rgba(201, 165, 107, 0.06) !important;
+}
+
+.stat-number {
+  color: var(--color-ink) !important;
+  font-size: var(--fs-stat);
+  font-weight: 400;
+}
+
 .stat-number .unit {
-  color: var(--color-electric);
+  color: var(--color-gold);
+  font-size: 0.4em;
 }
 
 .stat-rule {
-  background: var(--color-electric);
+  background: var(--color-gold);
 }
 
-.eyebrow {
-  color: var(--color-electric);
-}
-.eyebrow::before {
-  background: var(--color-electric);
+.stat-label {
+  color: var(--color-ink-3);
 }
 
-/* 顶栏的品牌副标 */
-.brand-mark {
-  color: var(--color-electric);
+/* =========================================================================
+   6. 三力支柱卡片
+   ========================================================================= */
+
+.pillar-card {
+  background: var(--color-paper);
+  border-color: var(--color-line);
+  box-shadow: var(--shadow-sm);
 }
 
-/* 链接 hover 改成电光蓝 */
-a:hover {
-  color: var(--color-electric);
+.pillar-card:hover {
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-gold);
 }
 
-/* 不影响品红：标题 em 渐变、CTA 渐变保留原样，作为视觉锚点 */
+.pillar-card::before {
+  background: linear-gradient(90deg, var(--color-gold) 0%, var(--color-orange) 100%);
+}
+
+.pillar-num {
+  color: var(--color-gold);
+}
+
+.pillar-title {
+  color: var(--color-ink);
+}
+
+.pillar-desc {
+  color: var(--color-ink-2);
+}
+
+.pillar-tag {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--color-ink-2);
+  border-color: transparent;
+}
+
+.pillar-card:hover .pillar-tag {
+  background: rgba(201, 165, 107, 0.10);
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+
+.pillar-tags {
+  border-top-color: var(--color-line);
+}
+
+/* =========================================================================
+   7. 代表案例卡
+   ========================================================================= */
+
+#cases {
+  background: var(--color-cream) !important;
+}
+
+.case-card {
+  background: var(--color-paper);
+  border-color: var(--color-line);
+}
+
+.case-card:hover {
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-gold);
+}
+
+.case-card::before {
+  background: radial-gradient(circle, rgba(201, 165, 107, 0.18), transparent 70%);
+}
+
+.case-card[data-tone="electric"]::before {
+  background: radial-gradient(circle, rgba(45, 108, 223, 0.20), transparent 70%);
+}
+
+.case-card[data-tone="orange"]::before {
+  background: radial-gradient(circle, rgba(255, 138, 61, 0.22), transparent 70%);
+}
+
+.case-card[data-tone="magenta"]::before {
+  background: radial-gradient(circle, rgba(255, 46, 99, 0.22), transparent 70%);
+}
+
+.case-tag {
+  background: var(--color-gold);
+  color: var(--color-deepest);
+}
+
+.case-tag[data-tone="electric"] { background: var(--color-electric); color: #fff; }
+.case-tag[data-tone="orange"]   { background: var(--color-orange); color: var(--color-deepest); }
+.case-tag[data-tone="magenta"]  { background: var(--color-magenta); color: #fff; }
+
+.case-period {
+  color: var(--color-ink-3);
+}
+
+.case-title {
+  color: var(--color-ink);
+}
+
+.case-role {
+  color: var(--color-ink-3);
+}
+
+.case-desc {
+  color: var(--color-ink-2);
+}
+
+.case-stats {
+  border-top-color: var(--color-line);
+}
+
+.case-stat-value {
+  color: var(--color-ink);
+}
+
+.case-stat-value .unit {
+  color: var(--color-gold);
+}
+
+.case-stat-label {
+  color: var(--color-ink-3);
+}
+
+/* =========================================================================
+   8. 履历时间轴
+   ========================================================================= */
+
+#timeline {
+  background: var(--color-cream-deep) !important;
+}
+
+.timeline {
+  border-left-color: var(--color-line-strong);
+}
+
+.timeline-item {
+  background: var(--color-paper);
+  border-color: var(--color-line);
+}
+
+.timeline-item:hover {
+  border-color: var(--color-gold);
+  box-shadow: var(--shadow);
+}
+
+.timeline-item::before {
+  background: var(--color-cream-deep);
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 4px var(--color-cream-deep);
+}
+
+.timeline-item.is-current::before {
+  background: var(--color-gold);
+}
+
+@keyframes pulseDot {
+  0%, 100% { box-shadow: 0 0 0 4px var(--color-cream-deep), 0 0 0 4px rgba(201, 165, 107, 0); }
+  50%      { box-shadow: 0 0 0 4px var(--color-cream-deep), 0 0 0 10px rgba(201, 165, 107, 0.18); }
+}
+
+.timeline-period {
+  color: var(--color-gold);
+}
+
+.timeline-current-pill {
+  background: var(--color-gold);
+  color: var(--color-deepest);
+}
+
+.timeline-company {
+  color: var(--color-ink);
+}
+
+.timeline-role {
+  color: var(--color-ink-3);
+}
+
+.timeline-summary {
+  color: var(--color-ink-2);
+}
+
+.timeline-bullets li {
+  color: var(--color-ink-2);
+}
+
+.timeline-bullets li::before {
+  background: var(--color-gold);
+}
+
+.timeline-bullets strong {
+  color: var(--color-ink);
+}
+
+.timeline-bullets em {
+  color: var(--color-gold);
+}
+
+/* =========================================================================
+   9. 项目明细 / 教育 / 页脚
+   ========================================================================= */
+
+#projects {
+  background: var(--color-cream) !important;
+}
+
+.project-card {
+  background: var(--color-paper);
+  border-color: var(--color-line);
+}
+
+.project-card:hover {
+  border-color: var(--color-gold);
+}
+
+.project-eyebrow {
+  color: var(--color-gold);
+}
+
+.project-eyebrow .role {
+  color: var(--color-ink-3);
+}
+
+.project-title {
+  color: var(--color-ink);
+}
+
+.project-desc {
+  color: var(--color-ink-2);
+}
+
+.project-desc em {
+  color: var(--color-gold);
+}
+
+#education {
+  background: var(--color-cream-deep) !important;
+}
+
+.edu-card {
+  background: var(--color-paper);
+  border-color: var(--color-line);
+}
+
+.edu-period {
+  color: var(--color-gold);
+}
+
+.edu-school {
+  color: var(--color-ink);
+}
+
+.edu-major {
+  color: var(--color-ink-3);
+}
+
+/* 页脚保持深色（原本就深，但调整细节） */
+.footer-block {
+  background: var(--color-deepest) !important;
+}
+
+.footer-tagline {
+  color: var(--color-ink);
+}
+
+.footer-tagline em {
+  background: var(--gradient-cta);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.footer-cta-button {
+  background: var(--color-gold);
+  color: var(--color-deepest);
+}
+
+.footer-cta-button:hover {
+  background: var(--color-ink);
+  color: var(--color-gold);
+}
+
+/* =========================================================================
+   10. Hero 拼贴（人像区）：照片白边改为金边，色块改金色
+   ========================================================================= */
+
+.collage-bg-text {
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: rgba(201, 165, 107, 0.35);
+  letter-spacing: 0;
+  font-style: normal !important;
+}
+
+.collage-shape--block {
+  background: var(--gradient-hero);
+  filter: saturate(105%);
+}
+
+.collage-shape--ring {
+  border-color: var(--color-gold);
+}
+
+.collage-shape--dot {
+  background: var(--color-gold);
+}
+
+.collage-photo {
+  border-color: rgba(255, 255, 255, 0.95) !important; /* 照片白边保留，深色底上更突出 */
+  background: var(--color-cream-deep);
+}
+
+.collage-photo--main,
+.collage-photo--sub {
+  border-color: rgba(255, 255, 255, 0.95) !important;
+}
+
+.collage-masthead {
+  color: var(--color-ink);
+}
+
+.collage-masthead-vol {
+  background: var(--color-gold);
+  color: var(--color-deepest);
+}
+
+.collage-masthead-divider {
+  background: var(--color-gold);
+}
+
+.collage-masthead-issue {
+  color: var(--color-ink-3);
+}
+
+.collage-badge {
+  background: var(--color-gold);
+  color: var(--color-deepest);
+}
+
+.collage-badge-num {
+  color: var(--color-deepest);
+  background: none;
+  -webkit-text-fill-color: var(--color-deepest);
+}
+
+.collage-badge-text {
+  color: var(--color-deepest);
+}
+
+.collage-star {
+  color: var(--color-gold);
+  text-shadow: 0 2px 6px rgba(201, 165, 107, 0.35);
+}
+
+.collage-arrow {
+  color: var(--color-gold);
+  opacity: 0.85;
+}
+
+.collage-caption {
+  border-top-color: var(--color-line);
+}
+
+.collage-caption-no {
+  color: var(--color-gold);
+}
+
+.collage-caption-name {
+  color: var(--color-ink);
+}
+
+.collage-caption-name em {
+  color: var(--color-ink-3);
+  font-family: var(--font-display);
+  font-weight: 400;
+}
+
+.collage-caption-role {
+  color: var(--color-ink-3);
+}
+
+/* =========================================================================
+   11. 选区颜色 / 其它细节
+   ========================================================================= */
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-deepest);
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-deepest);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-line-strong);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold);
+}
+
+:focus-visible {
+  outline-color: var(--color-gold);
+}
+
+/* 板块整体 padding 略加，让暗色版块呼吸更宽松 */
+section {
+  padding-block: clamp(5rem, 9vw, 8rem);
+}
+
+/* 响应式：板块标题在窄屏堆叠 */
+@media (max-width: 768px) {
+  .section-head {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-4);
+  }
+
+  .section-head::before {
+    font-size: 3.25rem;
+  }
+
+  .section-head::after {
+    display: none;
+  }
+
+  .stat-number {
+    font-size: clamp(2.25rem, 9vw, 3rem);
+  }
+}
+
+/* 打印样式：暗色不打印，回到白底黑字（继承 base.css 的 print 即可） */
+@media print {
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  .section-head::before {
+    color: #B5184B !important;
+  }
+}
