@@ -175,6 +175,37 @@
   }
 
   // ---------------------------------------------------------------
+  // 4b. 横向职业时间轴 —— 节点点击切换面板
+  // ---------------------------------------------------------------
+  const careerNodes = document.querySelectorAll(".career-node");
+  const careerPanels = document.querySelectorAll(".career-panel");
+
+  if (careerNodes.length && careerPanels.length) {
+    careerNodes.forEach((node) => {
+      node.addEventListener("click", () => {
+        const target = node.getAttribute("data-target");
+        if (!target) return;
+
+        careerNodes.forEach((n) => {
+          const active = n === node;
+          n.classList.toggle("is-active", active);
+          n.setAttribute("aria-pressed", String(active));
+        });
+
+        careerPanels.forEach((p) => {
+          const active = p.id === target;
+          p.classList.toggle("is-active", active);
+          if (active) {
+            p.removeAttribute("hidden");
+          } else {
+            p.setAttribute("hidden", "");
+          }
+        });
+      });
+    });
+  }
+
+  // ---------------------------------------------------------------
   // 5. 平滑锚点滚动（fallback，浏览器若不支持 scroll-behavior:smooth）
   // ---------------------------------------------------------------
   document.querySelectorAll('a[href^="#"]').forEach((link) => {

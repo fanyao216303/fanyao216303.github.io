@@ -68,10 +68,10 @@
 
   <!-- 项目样式 -->
   <!-- 版本号 v=nostat20260524 用于绕过浏览器/CDN 缓存 -->
-  <link rel="stylesheet" href="styles/tokens.css?v=nostat20260524" />
-  <link rel="stylesheet" href="styles/base.css?v=nostat20260524" />
-  <link rel="stylesheet" href="styles/components.css?v=nostat20260524" />
-  <link rel="stylesheet" href="styles/animations.css?v=nostat20260524" />
+  <link rel="stylesheet" href="styles/tokens.css?v=nostat20260524d" />
+  <link rel="stylesheet" href="styles/base.css?v=nostat20260524d" />
+  <link rel="stylesheet" href="styles/components.css?v=nostat20260524d" />
+  <link rel="stylesheet" href="styles/animations.css?v=nostat20260524d" />
 </head>
 <body>
 
@@ -498,10 +498,79 @@
           </p>
         </div>
 
-        <ol class="timeline reveal-stagger">
+        <!-- ===== 横向年代轴 ===== -->
+        <nav class="career-rail reveal" aria-label="职业时间线导航">
+          <div class="career-rail-track">
+            <ol class="career-rail-list">
 
-          <!-- 斑马百科（在职） -->
-          <li class="timeline-item is-current">
+              <li>
+                <button class="career-node" type="button" data-target="career-suning" aria-controls="career-suning" aria-pressed="false">
+                  <span class="career-node-logo" data-brand="suning">
+                    <img src="assets/logos/suningyigou.png" alt="苏宁易购" loading="lazy" />
+                  </span>
+                  <span class="career-node-dot" aria-hidden="true"></span>
+                  <span class="career-node-year">2014</span>
+                  <span class="career-node-name">苏宁易购</span>
+                  <span class="career-node-sub">品牌策划经理</span>
+                </button>
+              </li>
+
+              <li>
+                <button class="career-node" type="button" data-target="career-mafengwo" aria-controls="career-mafengwo" aria-pressed="false">
+                  <span class="career-node-logo" data-brand="mafengwo">
+                    <img src="assets/logos/mafengwo.png" alt="马蜂窝" loading="lazy" />
+                  </span>
+                  <span class="career-node-dot" aria-hidden="true"></span>
+                  <span class="career-node-year">2017</span>
+                  <span class="career-node-name">马蜂窝</span>
+                  <span class="career-node-sub">品牌市场经理</span>
+                </button>
+              </li>
+
+              <li>
+                <button class="career-node" type="button" data-target="career-zuoyebang" aria-controls="career-zuoyebang" aria-pressed="false">
+                  <span class="career-node-logo" data-brand="zuoyebang">
+                    <img src="assets/logos/zuoyebang.png" alt="作业帮" loading="lazy" />
+                  </span>
+                  <span class="career-node-dot" aria-hidden="true"></span>
+                  <span class="career-node-year">2020</span>
+                  <span class="career-node-name">作业帮</span>
+                  <span class="career-node-sub">整合营销经理</span>
+                </button>
+              </li>
+
+              <li>
+                <button class="career-node" type="button" data-target="career-kuaishou" aria-controls="career-kuaishou" aria-pressed="false">
+                  <span class="career-node-logo" data-brand="kuaishou">
+                    <img src="assets/logos/kuaishou.png" alt="快手" loading="lazy" />
+                  </span>
+                  <span class="career-node-dot" aria-hidden="true"></span>
+                  <span class="career-node-year">2021</span>
+                  <span class="career-node-name">快手</span>
+                  <span class="career-node-sub">整合营销经理</span>
+                </button>
+              </li>
+
+              <li>
+                <button class="career-node is-active" type="button" data-target="career-banma" aria-controls="career-banma" aria-pressed="true">
+                  <span class="career-node-logo" data-brand="banma">
+                    <img src="assets/logos/banma.jpg" alt="斑马百科" loading="lazy" />
+                  </span>
+                  <span class="career-node-dot career-node-dot--current" aria-hidden="true"></span>
+                  <span class="career-node-year">2022<span class="career-node-now">NOW</span></span>
+                  <span class="career-node-name">斑马百科</span>
+                  <span class="career-node-sub">市场营销负责人</span>
+                </button>
+              </li>
+
+            </ol>
+          </div>
+        </nav>
+
+        <!-- ===== 详情面板（默认显示斑马百科） ===== -->
+        <div class="career-panels reveal">
+
+          <article class="career-panel is-active" id="career-banma" data-brand="banma">
             <div class="timeline-head">
               <div class="timeline-logo" data-brand="banma">
                 <img src="assets/logos/banma.jpg" alt="斑马百科 logo" loading="lazy" />
@@ -524,10 +593,9 @@
               <li><strong>增长业务协同：</strong>百科自播周 ROI 由 <em>0.5 → 0.9+</em>，应用市场 7 天回滚投放 ROI 稳定 <em>1+</em>，整体平均 <em>2.2+</em>。</li>
               <li><strong>新品上市营销：</strong>实体图书从第二本开始接手，上线 1 个月单纯站内销量 <em>5500 册</em>，重点资源位点击率高出站内平均 <em>150%</em>；仅 2.5w 站外预算下小红书月均搜索指数 <em>746</em>，CPUV <em>25</em>，并在小红书形成 AI 推荐与"儿童科普必选图书"内容认知，带动产品卖点破圈传播。</li>
             </ul>
-          </li>
+          </article>
 
-          <!-- 快手 -->
-          <li class="timeline-item">
+          <article class="career-panel" id="career-kuaishou" data-brand="kuaishou" hidden>
             <div class="timeline-head">
               <div class="timeline-logo" data-brand="kuaishou">
                 <img src="assets/logos/kuaishou.png" alt="快手 logo" loading="lazy" />
@@ -547,10 +615,9 @@
               <li><strong>站外破圈：</strong>站外微博话题阅读量总计 <em>2 亿</em>，微博热搜上榜并持续 <em>2 小时+</em>。</li>
               <li><strong>站外站内联动：</strong>媒体、社群、视频号、KOC 矩阵联动，推动站外传播带动站内关键词搜索回流提升 <em>237%</em>。</li>
             </ul>
-          </li>
+          </article>
 
-          <!-- 作业帮 -->
-          <li class="timeline-item">
+          <article class="career-panel" id="career-zuoyebang" data-brand="zuoyebang" hidden>
             <div class="timeline-head">
               <div class="timeline-logo" data-brand="zuoyebang">
                 <img src="assets/logos/zuoyebang.png" alt="作业帮 logo" loading="lazy" />
@@ -571,10 +638,9 @@
               <li><strong>#这样学习很酷#：</strong>事件营销「爷爷为了孩子自学课程」上微博实时热搜前三，话题阅读 <em>8000w+</em>，超 <em>50</em> 家权威媒体报道。</li>
               <li><strong>#最想要的六一礼物#：</strong>话题阅读 <em>1 亿+</em>，视频播放 <em>380 万+</em>，百度指数环比 <em>+83%</em>。</li>
             </ul>
-          </li>
+          </article>
 
-          <!-- 马蜂窝 -->
-          <li class="timeline-item">
+          <article class="career-panel" id="career-mafengwo" data-brand="mafengwo" hidden>
             <div class="timeline-head">
               <div class="timeline-logo" data-brand="mafengwo">
                 <img src="assets/logos/mafengwo.png" alt="马蜂窝 logo" loading="lazy" />
@@ -595,10 +661,9 @@
               <li><strong>英雄联盟 S8 联合营销：</strong>1 万元预算实现 H5 <em>百万级 PV/UV</em>，贡献 <em>16%+</em> GMV。</li>
               <li><strong>世界杯整合营销：</strong>微信指数 <em>+217%</em>、微博 <em>+181%</em>、百度 <em>+143%</em>，下载激活增长 <em>150%</em>，新客成本 &lt; 50 元。</li>
             </ul>
-          </li>
+          </article>
 
-          <!-- 苏宁 -->
-          <li class="timeline-item">
+          <article class="career-panel" id="career-suning" data-brand="suning" hidden>
             <div class="timeline-head">
               <div class="timeline-logo" data-brand="suning">
                 <img src="assets/logos/suningyigou.png" alt="苏宁易购 logo" loading="lazy" />
@@ -618,9 +683,9 @@
               <li><strong>行业研究：</strong>对接艾瑞咨询、易观等外部机构，支持重点业务白皮书及研究报告产出。</li>
               <li><strong>项目成果：</strong>多个重点项目 <em>100%+</em> KPI 完成率，部分项目整体完成率 <em>150%</em>，获集团年度特别贡献奖。</li>
             </ul>
-          </li>
+          </article>
 
-        </ol>
+        </div>
       </div>
     </section>
 
@@ -786,6 +851,6 @@
     </div>
   </footer>
 
-  <script src="scripts/main.js"></script>
+  <script src="scripts/main.js?v=nostat20260524d"></script>
 </body>
 </html>
