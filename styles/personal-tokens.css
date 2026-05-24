@@ -13,39 +13,40 @@
 }
 
 :root {
-  /* ============ 颜色（暗黑专题风） ============ */
-  /* 三层底色：最深 hero/footer / 主底 / 次底 */
-  --color-cream: #14141A;        /* 主底（原"米白"位） */
-  --color-cream-deep: #1F1F26;   /* 次底（原"奶油"位，用于 stats、timeline 段） */
-  --color-paper: #20202A;        /* 卡片底（原"白"位） */
-  --color-deepest: #0A0A0E;      /* 最深底（hero、footer 用） */
+  /* ============ 颜色（深海军蓝 × 酒红 × 白） ============ */
+  /* 比参考图再压一档暗，更沉稳 */
+  --color-cream: #0A1426;        /* 主底：极深海军蓝 */
+  --color-cream-deep: #070F1F;   /* 次底：更深 */
+  --color-paper: #101D33;        /* 卡片底：稍亮深蓝 */
+  --color-deepest: #040810;      /* 最深底：hero / footer */
 
   /* 文字（反转） */
   --color-ink: #FFFFFF;
-  --color-ink-2: rgba(255, 255, 255, 0.78);
-  --color-ink-3: rgba(255, 255, 255, 0.55);
-  --color-ink-4: rgba(255, 255, 255, 0.38);
+  --color-ink-2: rgba(255, 255, 255, 0.80);
+  --color-ink-3: rgba(255, 255, 255, 0.58);
+  --color-ink-4: rgba(255, 255, 255, 0.40);
 
-  /* 分割线（暗色细线） */
+  /* 分割线（带蓝色调的暗细线） */
   --color-line: rgba(255, 255, 255, 0.10);
-  --color-line-strong: rgba(255, 255, 255, 0.20);
+  --color-line-strong: rgba(255, 255, 255, 0.22);
 
-  /* 主点缀色：金色（来自参考画面的暖金调） */
-  --color-gold: #C9A56B;
-  --color-gold-deep: #A88349;
-  --color-gold-soft: rgba(201, 165, 107, 0.18);
+  /* 主点缀色：酒红（比参考图深一档，更沉稳） */
+  /* 注：变量名沿用 --color-gold 以最小化改动；语义上现在是酒红 */
+  --color-gold: #A21D26;
+  --color-gold-deep: #7E1219;
+  --color-gold-soft: rgba(162, 29, 38, 0.20);
 
-  /* 保留品红/电光蓝/暖橙作为高亮锚点（用在数字、CTA、渐变上） */
-  --color-magenta: #FF2E63;
-  --color-magenta-deep: #D9134A;
-  --color-electric: #2D6CDF;
-  --color-electric-deep: #1A4FB3;
-  --color-orange: #FF8A3D;
+  /* 辅助点缀（数据高亮等场景） */
+  --color-magenta: #C8232C;      /* 偏亮的酒红，用于数字、强调 */
+  --color-magenta-deep: #861318;
+  --color-electric: #2A4A78;     /* 深蓝（次点缀，用于第二种区分色） */
+  --color-electric-deep: #173256;
+  --color-orange: #B89559;       /* 暗金，作为辅助暖色（不抢主） */
 
-  /* 渐变重做：金色为主 + 品红/暖橙作锚 */
-  --gradient-hero: linear-gradient(135deg, #C9A56B 0%, #FF8A3D 60%, #FF2E63 100%);
-  --gradient-band: linear-gradient(90deg, #C9A56B 0%, #FF8A3D 50%, #FF2E63 100%);
-  --gradient-cta:  linear-gradient(135deg, #C9A56B 0%, #FF8A3D 100%);
+  /* 渐变：酒红为主 + 深蓝作底色拉伸 */
+  --gradient-hero: linear-gradient(135deg, #A21D26 0%, #C8232C 50%, #7E1219 100%);
+  --gradient-band: linear-gradient(90deg, #A21D26 0%, #C8232C 50%, #2A4A78 100%);
+  --gradient-cta:  linear-gradient(135deg, #C8232C 0%, #A21D26 100%);
 
   /* ============ 字体 ============ */
   --font-serif:    "Alibaba-PuHuiTi-Medium", "PingFang SC", "Microsoft YaHei", -apple-system, sans-serif;
@@ -871,6 +872,6 @@ section {
   }
 
   .section-head::before {
-    color: #B5184B !important;
+    color: #7E1219 !important; /* 打印时编号用深酒红 */
   }
 }
