@@ -116,6 +116,22 @@ h6 {
   color: transparent;
 }
 
+/* 加粗变体（pillar 标题专用） */
+.section-title--bold {
+  font-weight: 900;
+  letter-spacing: 0.005em;
+}
+
+/* "品牌、增长、传播"等关键词彩色高亮 */
+.pillars-keywords {
+  background: var(--gradient-cta);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 900;
+  letter-spacing: 0.01em;
+}
+
 .section-lead {
   font-size: var(--fs-h4);
   color: var(--color-ink-2);

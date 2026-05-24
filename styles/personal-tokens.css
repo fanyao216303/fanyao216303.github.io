@@ -472,6 +472,36 @@ h1, h2, h3, h4, h5, h6,
   color: var(--color-gold);
 }
 
+/* 暗色版图标：透明白底 + 酒红描边 */
+.pillar-icon {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--color-gold);
+  border: 1px solid rgba(162, 29, 38, 0.32);
+}
+
+.pillar-card:hover .pillar-icon {
+  background: var(--color-gold);
+  color: var(--color-ink);
+  border-color: var(--color-gold);
+}
+
+.pillar-head .pillar-num {
+  color: var(--color-gold);
+}
+
+/* "品牌、增长、传播" 关键词在酒红版用酒红渐变 */
+.pillars-keywords {
+  background: var(--gradient-cta);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* 加粗 section title 在暗色底默认是白 */
+.section-title--bold {
+  color: var(--color-ink);
+}
+
 .pillar-title {
   color: var(--color-ink);
 }
