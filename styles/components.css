@@ -853,8 +853,8 @@
    --------------------------------------------------------------------------- */
 .pillars-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--space-5);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-4);
 }
 
 .pillar-card {
@@ -1457,6 +1457,7 @@
   line-height: 1.15;
   font-weight: 700;
   letter-spacing: -0.01em;
+  color: #fff;
 }
 
 .footer-tagline em {
@@ -1592,7 +1593,7 @@
   }
 
   .pillar-card:nth-child(3) {
-    grid-column: span 2;
+    grid-column: auto;
   }
 
   .cases-grid {
@@ -2211,4 +2212,92 @@
 .career-rail-flow-label::after {
   content: "  ››› 入行起点";
   color: var(--color-ink-3);
+}
+
+/* =========================================================================
+   7c. 项目卡片 · 横向自动滚动（marquee）
+   ========================================================================= */
+
+.projects-marquee {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  margin: 0 calc(-1 * var(--space-3));
+  padding: var(--space-4) var(--space-3);
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 6%,
+    #000 94%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 6%,
+    #000 94%,
+    transparent 100%
+  );
+}
+
+.projects-marquee-track {
+  display: flex;
+  gap: var(--space-5);
+  width: max-content;
+  will-change: transform;
+  animation: marqueeRight 60s linear infinite;
+}
+
+.projects-marquee:hover .projects-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeRight {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+.projects-marquee .project-card--imaged {
+  flex: 0 0 360px;
+  width: 360px;
+  transition: transform 0.32s ease, box-shadow 0.32s ease;
+}
+
+.projects-marquee .project-card--imaged:hover {
+  transform: scale(1.05);
+  z-index: 5;
+  box-shadow: 0 24px 50px -20px rgba(15, 15, 18, 0.25);
+}
+
+.projects-marquee .project-title {
+  font-weight: 800;
+}
+
+.projects-marquee .project-eyebrow,
+.projects-marquee .project-eyebrow .role {
+  font-weight: 700;
+}
+
+.projects-marquee .project-desc {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .projects-marquee-track {
+    animation: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .projects-marquee .project-card--imaged {
+    flex: 0 0 280px;
+    width: 280px;
+  }
+  .projects-marquee-track {
+    animation-duration: 45s;
+    gap: var(--space-4);
+  }
 }

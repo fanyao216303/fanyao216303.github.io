@@ -220,6 +220,23 @@
   }
 
   // ---------------------------------------------------------------
+  // 4c. 项目明细 —— 横向自动滚动 marquee
+  //     克隆一份卡片实现无缝循环，CSS 已用 translateX(-50%) → 0
+  // ---------------------------------------------------------------
+  const marquees = document.querySelectorAll("[data-marquee]");
+  marquees.forEach((mq) => {
+    const track = mq.querySelector(".projects-marquee-track");
+    if (!track) return;
+    const cards = Array.from(track.children);
+    if (cards.length === 0) return;
+    cards.forEach((card) => {
+      const clone = card.cloneNode(true);
+      clone.setAttribute("aria-hidden", "true");
+      track.appendChild(clone);
+    });
+  });
+
+  // ---------------------------------------------------------------
   // 5. 平滑锚点滚动（fallback，浏览器若不支持 scroll-behavior:smooth）
   // ---------------------------------------------------------------
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
