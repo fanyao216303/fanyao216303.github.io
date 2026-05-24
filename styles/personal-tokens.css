@@ -412,7 +412,13 @@ h1, h2, h3, h4, h5, h6,
    5. 数据看板：白色超大数字 + 暗色卡片网格
    ========================================================================= */
 
+/* 板块底色节奏（去掉 stats 后）：Hero → Pillars(深) → Cases(浅) → Timeline(深) → Projects(浅) → Education(深) → Footer */
+#pillars {
+  background: var(--color-cream-deep) !important;
+}
+
 #stats {
+  /* 已弃用（保留规则但不应再被引用） */
   background: var(--color-cream-deep) !important;
 }
 

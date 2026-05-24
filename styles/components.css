@@ -994,6 +994,18 @@
 /* ---------------------------------------------------------------------------
    5. 代表项目卡片
    --------------------------------------------------------------------------- */
+/* 板块底色节奏（去掉 stats 后重新编排为深-浅-深-浅）：
+   Hero(cream)
+   → Pillars(cream-deep)
+   → Cases(cream)
+   → Timeline(cream-deep)
+   → Projects(cream)
+   → Education(cream-deep)
+   → Footer(深色) */
+#pillars {
+  background: var(--color-cream-deep);
+}
+
 #cases {
   background: var(--color-cream);
   position: relative;
@@ -1337,7 +1349,7 @@
    8. 教育背景
    --------------------------------------------------------------------------- */
 #education {
-  background: var(--color-cream);
+  background: var(--color-cream-deep);
 }
 
 .edu-card {
