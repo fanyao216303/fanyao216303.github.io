@@ -1,0 +1,205 @@
+/* =========================================================================
+   Banma Tokens —— 斑马百科字体风格变体
+   字体：Alibaba-PuHuiTi-Medium（强调）+ PingFang SC（正文）
+   特点：现代、规整、亲和、教育感；不用衬线，不用 Playfair
+   ========================================================================= */
+
+@font-face {
+  font-family: "Alibaba-PuHuiTi-Medium";
+  src: url("//static-nginx-online.fbcontent.cn/h5/zebra-ai-page/static/font/Alibaba-PuHuiTi-Medium.5e472fa2.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+:root {
+  /* ------------ 颜色（保留原项目体系，微调以贴合斑马的明亮稳重感） ------------ */
+  --color-cream: #FAF7F2;
+  --color-cream-deep: #F2EDE3;
+  --color-paper: #FFFFFF;
+  --color-ink: #2C3E50;        /* 改用斑马 body 的深蓝灰 #2C3E50，比纯墨黑更亲和 */
+  --color-ink-2: #4A5868;
+  --color-ink-3: #7B8794;
+  --color-ink-4: #A4ADB8;
+  --color-line: #E5E1D8;
+  --color-line-strong: #C9C4B6;
+
+  --color-magenta: #FF2E63;
+  --color-magenta-deep: #D9134A;
+  --color-electric: #2D6CDF;
+  --color-electric-deep: #1A4FB3;
+  --color-orange: #FF8A3D;
+
+  --gradient-hero: linear-gradient(135deg, #FF2E63 0%, #FF8A3D 60%, #FFC857 100%);
+  --gradient-band: linear-gradient(90deg, #FF2E63 0%, #FF8A3D 50%, #2D6CDF 100%);
+  --gradient-cta:  linear-gradient(135deg, #FF2E63 0%, #2D6CDF 100%);
+
+  /* ------------ 字体：斑马风格 ------------ */
+  /* 强调字体（标题、数字、装饰大字）：阿里巴巴普惠体 Medium */
+  --font-serif: "Alibaba-PuHuiTi-Medium", "PingFang SC", "Microsoft YaHei", -apple-system, sans-serif;
+
+  /* 正文：苹方 */
+  --font-sans:  "PingFang SC", "PingFangSC-Regular", "Helvetica Neue", "Microsoft YaHei", -apple-system, sans-serif;
+
+  /* 英文 / 装饰小标 */
+  --font-display: "Alibaba-PuHuiTi-Medium", "Avenir Next", "Avenir", "Helvetica Neue", sans-serif;
+
+  /* 数字 */
+  --font-mono-num: "Alibaba-PuHuiTi-Medium", "PingFang SC", "Helvetica Neue", -apple-system, sans-serif;
+
+  /* ------------ 字号阶梯（比原版略收，让整体更"规整"） ------------ */
+  --fs-hero: clamp(2.5rem, 5.4vw, 4.75rem);
+  --fs-h1:   clamp(1.875rem, 3.4vw, 2.75rem);
+  --fs-h2:   clamp(1.4rem, 2.2vw, 2rem);
+  --fs-h3:   1.3rem;
+  --fs-h4:   1.075rem;
+  --fs-body: 1rem;
+  --fs-sm:   0.875rem;
+  --fs-xs:   0.75rem;
+  --fs-stat: clamp(2.25rem, 4.4vw, 3.5rem);
+
+  /* 行高（中文黑体偏宽松更舒适） */
+  --lh-tight: 1.18;
+  --lh-snug:  1.4;
+  --lh-base:  1.7;
+  --lh-loose: 1.9;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --space-10: 8rem;
+
+  --radius-sm: 4px;
+  --radius:    8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 1px 2px rgba(44, 62, 80, 0.04), 0 1px 3px rgba(44, 62, 80, 0.06);
+  --shadow:    0 4px 12px rgba(44, 62, 80, 0.06), 0 2px 4px rgba(44, 62, 80, 0.04);
+  --shadow-lg: 0 16px 40px rgba(44, 62, 80, 0.10), 0 4px 12px rgba(44, 62, 80, 0.06);
+  --shadow-magenta: 0 12px 32px rgba(255, 46, 99, 0.18);
+
+  --max-w: 1200px;
+  --nav-h: 64px;
+  --transition: 0.32s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* =========================================================================
+   斑马风格细节修正：
+   原版很多地方写死了 .hero-title 的 font-weight: 800、letter-spacing: -0.02em，
+   这在普惠体上会过紧/过粗，需要松一些
+   ========================================================================= */
+
+body {
+  font-family: var(--font-sans);
+  letter-spacing: 0;
+}
+
+h1, h2, h3, h4, h5, h6,
+.hero-title,
+.section-title,
+.case-title,
+.timeline-company,
+.project-title,
+.pillar-title,
+.edu-school,
+.footer-tagline,
+.collage-caption-name {
+  font-family: var(--font-serif);
+  font-weight: 400;        /* 普惠体 Medium 已经是中等字重，不需再 bold */
+  letter-spacing: 0.005em; /* 中文字符稍微留点呼吸 */
+}
+
+/* Hero 主标题：原版用衬线大字+紧字距，斑马风格要更"友好" */
+.hero-title {
+  letter-spacing: 0;
+  line-height: 1.18;
+}
+
+.hero-title em,
+.hero-title .accent {
+  font-style: normal;
+}
+
+/* 数据卡片大数字 */
+.stat-number,
+.case-stat-value {
+  font-family: var(--font-mono-num);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+/* 编辑型小标签（eyebrow、masthead、caption-no 等英文小字）
+   斑马风格不用 Playfair italic，改成普惠体的字距加大 */
+.eyebrow,
+.collage-caption-no,
+.collage-masthead-vol,
+.collage-masthead-issue,
+.case-period,
+.project-eyebrow,
+.hero-contact-label,
+.footer-contact-label {
+  font-family: var(--font-display);
+  font-style: normal !important;
+  letter-spacing: 0.18em;
+  font-weight: 400;
+}
+
+/* caption 中的英文人名："Fan Yao" 不再用 Playfair italic */
+.collage-caption-name em,
+.case-stat-value .unit,
+.stat-number .unit,
+.collage-caption-role {
+  font-family: var(--font-display);
+  font-style: normal !important;
+  font-weight: 400;
+}
+
+/* footer 标语保留，但去掉过紧的字距 */
+.footer-tagline {
+  letter-spacing: 0;
+  line-height: 1.25;
+}
+
+/* 装饰文字（背景大字 FY）原本是 Playfair italic，在斑马风格里改用普惠体大粗字 */
+.collage-bg-text {
+  font-family: var(--font-display);
+  font-style: normal !important;
+  -webkit-text-stroke-width: 2px;
+  letter-spacing: 0;
+}
+
+/* 数据 / 数字配色更"教育平台"：电光蓝替代品红做主点缀（更稳重） */
+.stat-number .unit {
+  color: var(--color-electric);
+}
+
+.stat-rule {
+  background: var(--color-electric);
+}
+
+.eyebrow {
+  color: var(--color-electric);
+}
+.eyebrow::before {
+  background: var(--color-electric);
+}
+
+/* 顶栏的品牌副标 */
+.brand-mark {
+  color: var(--color-electric);
+}
+
+/* 链接 hover 改成电光蓝 */
+a:hover {
+  color: var(--color-electric);
+}
+
+/* 不影响品红：标题 em 渐变、CTA 渐变保留原样，作为视觉锚点 */
