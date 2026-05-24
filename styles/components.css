@@ -2120,3 +2120,22 @@
   content: "  ››› 入行起点";
   color: var(--color-ink-3);
 }
+
+/* footer 联系方式的小图标 */
+.footer-contact-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.footer-contact-icon {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+  color: rgba(255, 255, 255, 0.6);
+  transition: color 0.2s ease;
+}
+
+.footer-contact-item:hover .footer-contact-icon {
+  color: #fff;
+}
