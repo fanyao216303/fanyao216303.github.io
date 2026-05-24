@@ -220,20 +220,86 @@
   }
 
   // ---------------------------------------------------------------
-  // 4c. 项目明细 —— 横向自动滚动 marquee
-  //     克隆一份卡片实现无缝循环，CSS 已用 translateX(-50%) → 0
+  // 4c. 项目明细 —— 横向自动滚动 marquee + 左右按钮
+  //     - 自动模式：CSS animation 由左→右无缝循环
+  //     - 用户点击 prev/next：停止 CSS 动画，切换到 JS 控制 transform
+  //     - 用户从首次点击起永久切换为手动模式（鼠标悬停依然支持暂停）
   // ---------------------------------------------------------------
   const marquees = document.querySelectorAll("[data-marquee]");
   marquees.forEach((mq) => {
     const track = mq.querySelector(".projects-marquee-track");
     if (!track) return;
-    const cards = Array.from(track.children);
-    if (cards.length === 0) return;
-    cards.forEach((card) => {
+    const originalCards = Array.from(track.children);
+    if (originalCards.length === 0) return;
+
+    // 克隆一份卡片实现无缝循环
+    originalCards.forEach((card) => {
       const clone = card.cloneNode(true);
       clone.setAttribute("aria-hidden", "true");
       track.appendChild(clone);
     });
+
+    // 创建左右切换按钮
+    const prevBtn = document.createElement("button");
+    prevBtn.className = "marquee-nav marquee-nav--prev";
+    prevBtn.type = "button";
+    prevBtn.setAttribute("aria-label", "上一组项目");
+    prevBtn.innerHTML = '<i class="marquee-nav-icon">‹</i>';
+
+    const nextBtn = document.createElement("button");
+    nextBtn.className = "marquee-nav marquee-nav--next";
+    nextBtn.type = "button";
+    nextBtn.setAttribute("aria-label", "下一组项目");
+    nextBtn.innerHTML = '<i class="marquee-nav-icon">›</i>';
+
+    mq.appendChild(prevBtn);
+    mq.appendChild(nextBtn);
+
+    // 手动模式状态
+    let isManual = false;
+    let currentX = 0;
+
+    function getCardStep() {
+      const card = track.querySelector(".project-card--imaged");
+      if (!card) return 380;
+      const gap = parseFloat(getComputedStyle(track).gap) || 24;
+      return card.getBoundingClientRect().width + gap;
+    }
+
+    function getHalfTrackWidth() {
+      // 由于克隆了一份，总宽度的一半即为单组卡片宽度
+      return track.scrollWidth / 2;
+    }
+
+    // 第一次点击：固化当前 CSS 动画的位置 → 转 JS 控制
+    function switchToManual() {
+      if (isManual) return;
+      isManual = true;
+      const computed = getComputedStyle(track);
+      // 解析当前 transform 的 X 位移
+      const matrix = new DOMMatrixReadOnly(computed.transform);
+      currentX = matrix.m41;
+      track.style.animation = "none";
+      track.style.transform = `translateX(${currentX}px)`;
+      track.style.transition = "transform 0.45s cubic-bezier(.4,0,.2,1)";
+    }
+
+    function navigate(direction) {
+      switchToManual();
+      const step = getCardStep();
+      const halfWidth = getHalfTrackWidth();
+      // direction = 1 表示向右滚动看历史卡片，-1 反之
+      currentX += direction * step;
+      // 循环边界：保持 currentX 在 [-halfWidth, 0] 范围内
+      if (currentX > 0) currentX -= halfWidth;
+      if (currentX < -halfWidth) currentX += halfWidth;
+      track.style.transform = `translateX(${currentX}px)`;
+    }
+
+    prevBtn.addEventListener("click", () => navigate(1));   // 上一组 = 内容右移
+    nextBtn.addEventListener("click", () => navigate(-1));  // 下一组 = 内容左移
+
+    // 键盘左右键也支持（聚焦在按钮时浏览器自带）
   });
 
   // ---------------------------------------------------------------

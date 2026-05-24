@@ -1132,7 +1132,7 @@
   font-weight: 800;
   letter-spacing: -0.01em;
   line-height: 1.1;
-  color: var(--color-ink);
+  color: var(--color-magenta);
 }
 
 .case-stat-value .unit {
@@ -2300,4 +2300,69 @@
     animation-duration: 45s;
     gap: var(--space-4);
   }
+}
+
+/* =========================================================================
+   7d. 项目走马灯 · 左右切换按钮
+   ========================================================================= */
+
+.marquee-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--color-line);
+  background: rgba(255, 255, 255, 0.96);
+  color: var(--color-magenta);
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px -6px rgba(15, 15, 18, 0.18);
+  transition: transform 0.22s ease, background 0.22s ease, color 0.22s ease,
+              box-shadow 0.22s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.marquee-nav:hover {
+  background: var(--color-magenta);
+  color: #fff;
+  transform: translateY(-50%) scale(1.08);
+  box-shadow: 0 10px 24px -8px rgba(255, 46, 99, 0.45);
+}
+
+.marquee-nav:active {
+  transform: translateY(-50%) scale(0.96);
+}
+
+.marquee-nav:focus-visible {
+  outline: 2px solid var(--color-magenta);
+  outline-offset: 3px;
+}
+
+.marquee-nav--prev { left: 10px; }
+.marquee-nav--next { right: 10px; }
+
+.marquee-nav-icon {
+  display: inline-block;
+  font-style: normal;
+  transform: translateY(-1px);
+}
+
+/* 移动端：按钮缩小 */
+@media (max-width: 760px) {
+  .marquee-nav {
+    width: 36px;
+    height: 36px;
+    font-size: 1.2rem;
+  }
+  .marquee-nav--prev { left: 6px; }
+  .marquee-nav--next { right: 6px; }
 }

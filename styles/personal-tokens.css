@@ -598,7 +598,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .case-stat-value {
-  color: var(--color-ink);
+  color: var(--color-gold);
 }
 
 .case-stat-value .unit {
@@ -996,4 +996,21 @@ section {
 
 .career-rail-flow-label::before {
   color: var(--color-gold);
+}
+
+/* 走马灯左右按钮 —— 金色覆盖 */
+.marquee-nav {
+  background: rgba(20, 20, 26, 0.92);
+  color: var(--color-gold);
+  border-color: var(--color-line-strong);
+}
+
+.marquee-nav:hover {
+  background: var(--color-gold);
+  color: var(--color-deepest);
+  box-shadow: 0 10px 24px -8px rgba(201, 165, 107, 0.45);
+}
+
+.marquee-nav:focus-visible {
+  outline-color: var(--color-gold);
 }
