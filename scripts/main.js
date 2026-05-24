@@ -181,27 +181,41 @@
   const careerPanels = document.querySelectorAll(".career-panel");
 
   if (careerNodes.length && careerPanels.length) {
-    careerNodes.forEach((node) => {
-      node.addEventListener("click", () => {
-        const target = node.getAttribute("data-target");
-        if (!target) return;
+    const activateNode = (node) => {
+      const target = node.getAttribute("data-target");
+      if (!target) return;
+      if (node.classList.contains("is-active")) return;
 
-        careerNodes.forEach((n) => {
-          const active = n === node;
-          n.classList.toggle("is-active", active);
-          n.setAttribute("aria-pressed", String(active));
-        });
-
-        careerPanels.forEach((p) => {
-          const active = p.id === target;
-          p.classList.toggle("is-active", active);
-          if (active) {
-            p.removeAttribute("hidden");
-          } else {
-            p.setAttribute("hidden", "");
-          }
-        });
+      careerNodes.forEach((n) => {
+        const active = n === node;
+        n.classList.toggle("is-active", active);
+        n.setAttribute("aria-pressed", String(active));
       });
+
+      careerPanels.forEach((p) => {
+        const active = p.id === target;
+        p.classList.toggle("is-active", active);
+        if (active) {
+          p.removeAttribute("hidden");
+        } else {
+          p.setAttribute("hidden", "");
+        }
+      });
+    };
+
+    careerNodes.forEach((node) => {
+      node.addEventListener("click", () => activateNode(node));
+      // 悬停触发：用细微延迟避免快速滑过误触
+      let hoverTimer = null;
+      node.addEventListener("mouseenter", () => {
+        if (hoverTimer) clearTimeout(hoverTimer);
+        hoverTimer = setTimeout(() => activateNode(node), 80);
+      });
+      node.addEventListener("mouseleave", () => {
+        if (hoverTimer) clearTimeout(hoverTimer);
+      });
+      // 键盘聚焦也切换
+      node.addEventListener("focus", () => activateNode(node));
     });
   }
 

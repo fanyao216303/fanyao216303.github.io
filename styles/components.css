@@ -2061,3 +2061,61 @@
     padding: var(--space-4);
   }
 }
+
+/* =========================================================================
+   6c. 横向轨道：方向箭头 & 倒序标签
+   ========================================================================= */
+
+/* 相邻节点之间的方向箭头 —— 提示时间倒序（现在 → 入行） */
+.career-rail-list > li:not(:last-child)::after {
+  content: "›";
+  position: absolute;
+  top: 70px;
+  right: 0;
+  transform: translate(50%, -50%);
+  z-index: 2;
+  color: var(--color-magenta);
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1;
+  background: var(--color-cream-deep);
+  padding: 0 6px;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* 移动端：箭头位置随圆点下移调整 */
+@media (max-width: 760px) {
+  .career-rail-list > li:not(:last-child)::after {
+    top: 62px;
+    font-size: 1.2rem;
+    padding: 0 4px;
+  }
+}
+
+/* 轨道底部小标签：标记"时间倒序" */
+.career-rail-flow-label {
+  display: block;
+  margin-top: var(--space-2);
+  text-align: right;
+  padding-right: var(--space-3);
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-ink-3);
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+.career-rail-flow-label::before {
+  content: "now ‹‹‹  ";
+  color: var(--color-magenta);
+  font-weight: 700;
+}
+
+.career-rail-flow-label::after {
+  content: "  ››› 入行起点";
+  color: var(--color-ink-3);
+}

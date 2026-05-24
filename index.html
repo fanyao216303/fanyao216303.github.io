@@ -68,10 +68,10 @@
 
   <!-- 项目样式 -->
   <!-- 版本号 v=nostat20260524 用于绕过浏览器/CDN 缓存 -->
-  <link rel="stylesheet" href="styles/tokens.css?v=nostat20260524d" />
-  <link rel="stylesheet" href="styles/base.css?v=nostat20260524d" />
-  <link rel="stylesheet" href="styles/components.css?v=nostat20260524d" />
-  <link rel="stylesheet" href="styles/animations.css?v=nostat20260524d" />
+  <link rel="stylesheet" href="styles/tokens.css?v=nostat20260524e" />
+  <link rel="stylesheet" href="styles/base.css?v=nostat20260524e" />
+  <link rel="stylesheet" href="styles/components.css?v=nostat20260524e" />
+  <link rel="stylesheet" href="styles/animations.css?v=nostat20260524e" />
 </head>
 <body>
 
@@ -498,44 +498,20 @@
           </p>
         </div>
 
-        <!-- ===== 横向年代轴 ===== -->
+        <!-- ===== 横向年代轴（时间倒序：现在 → 入行）===== -->
         <nav class="career-rail reveal" aria-label="职业时间线导航">
           <div class="career-rail-track">
             <ol class="career-rail-list">
 
               <li>
-                <button class="career-node" type="button" data-target="career-suning" aria-controls="career-suning" aria-pressed="false">
-                  <span class="career-node-logo" data-brand="suning">
-                    <img src="assets/logos/suningyigou.png" alt="苏宁易购" loading="lazy" />
+                <button class="career-node is-active" type="button" data-target="career-banma" aria-controls="career-banma" aria-pressed="true">
+                  <span class="career-node-logo" data-brand="banma">
+                    <img src="assets/logos/banma.jpg" alt="斑马百科" loading="lazy" />
                   </span>
-                  <span class="career-node-dot" aria-hidden="true"></span>
-                  <span class="career-node-year">2014</span>
-                  <span class="career-node-name">苏宁易购</span>
-                  <span class="career-node-sub">品牌策划经理</span>
-                </button>
-              </li>
-
-              <li>
-                <button class="career-node" type="button" data-target="career-mafengwo" aria-controls="career-mafengwo" aria-pressed="false">
-                  <span class="career-node-logo" data-brand="mafengwo">
-                    <img src="assets/logos/mafengwo.png" alt="马蜂窝" loading="lazy" />
-                  </span>
-                  <span class="career-node-dot" aria-hidden="true"></span>
-                  <span class="career-node-year">2017</span>
-                  <span class="career-node-name">马蜂窝</span>
-                  <span class="career-node-sub">品牌市场经理</span>
-                </button>
-              </li>
-
-              <li>
-                <button class="career-node" type="button" data-target="career-zuoyebang" aria-controls="career-zuoyebang" aria-pressed="false">
-                  <span class="career-node-logo" data-brand="zuoyebang">
-                    <img src="assets/logos/zuoyebang.png" alt="作业帮" loading="lazy" />
-                  </span>
-                  <span class="career-node-dot" aria-hidden="true"></span>
-                  <span class="career-node-year">2020</span>
-                  <span class="career-node-name">作业帮</span>
-                  <span class="career-node-sub">整合营销经理</span>
+                  <span class="career-node-dot career-node-dot--current" aria-hidden="true"></span>
+                  <span class="career-node-year">2022<span class="career-node-now">NOW</span></span>
+                  <span class="career-node-name">斑马百科</span>
+                  <span class="career-node-sub">市场营销负责人</span>
                 </button>
               </li>
 
@@ -552,18 +528,43 @@
               </li>
 
               <li>
-                <button class="career-node is-active" type="button" data-target="career-banma" aria-controls="career-banma" aria-pressed="true">
-                  <span class="career-node-logo" data-brand="banma">
-                    <img src="assets/logos/banma.jpg" alt="斑马百科" loading="lazy" />
+                <button class="career-node" type="button" data-target="career-zuoyebang" aria-controls="career-zuoyebang" aria-pressed="false">
+                  <span class="career-node-logo" data-brand="zuoyebang">
+                    <img src="assets/logos/zuoyebang.png" alt="作业帮" loading="lazy" />
                   </span>
-                  <span class="career-node-dot career-node-dot--current" aria-hidden="true"></span>
-                  <span class="career-node-year">2022<span class="career-node-now">NOW</span></span>
-                  <span class="career-node-name">斑马百科</span>
-                  <span class="career-node-sub">市场营销负责人</span>
+                  <span class="career-node-dot" aria-hidden="true"></span>
+                  <span class="career-node-year">2020</span>
+                  <span class="career-node-name">作业帮</span>
+                  <span class="career-node-sub">整合营销经理</span>
+                </button>
+              </li>
+
+              <li>
+                <button class="career-node" type="button" data-target="career-mafengwo" aria-controls="career-mafengwo" aria-pressed="false">
+                  <span class="career-node-logo" data-brand="mafengwo">
+                    <img src="assets/logos/mafengwo.png" alt="马蜂窝" loading="lazy" />
+                  </span>
+                  <span class="career-node-dot" aria-hidden="true"></span>
+                  <span class="career-node-year">2017</span>
+                  <span class="career-node-name">马蜂窝</span>
+                  <span class="career-node-sub">品牌市场经理</span>
+                </button>
+              </li>
+
+              <li>
+                <button class="career-node" type="button" data-target="career-suning" aria-controls="career-suning" aria-pressed="false">
+                  <span class="career-node-logo" data-brand="suning">
+                    <img src="assets/logos/suningyigou.png" alt="苏宁易购" loading="lazy" />
+                  </span>
+                  <span class="career-node-dot" aria-hidden="true"></span>
+                  <span class="career-node-year">2014</span>
+                  <span class="career-node-name">苏宁易购</span>
+                  <span class="career-node-sub">品牌策划经理</span>
                 </button>
               </li>
 
             </ol>
+            <span class="career-rail-flow-label" aria-hidden="true">时间倒序 · 看时光</span>
           </div>
         </nav>
 
@@ -851,6 +852,6 @@
     </div>
   </footer>
 
-  <script src="scripts/main.js?v=nostat20260524d"></script>
+  <script src="scripts/main.js?v=nostat20260524e"></script>
 </body>
 </html>
