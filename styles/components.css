@@ -1799,3 +1799,86 @@
     font-size: 1.75rem;
   }
 }
+
+/* =========================================================================
+   7b. 项目卡片 · 图文版（image-on-top）
+       灵感参考泰洋川禾 / 猿辅导素养课的"链接优质文化"卡片
+       但延续 fy 站点的奶油底 + 玫红强调风
+   ========================================================================= */
+
+.projects-grid--imaged {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-5);
+}
+
+.project-card--imaged {
+  /* 重置原 padding，让顶部图片直接贴边 */
+  padding: 0;
+  overflow: hidden;
+  background: var(--color-paper);
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card--imaged:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -16px rgba(15, 15, 18, 0.18);
+  border-color: var(--color-line);
+}
+
+.project-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: linear-gradient(135deg, #FFF0F2 0%, #FFE8D6 100%);
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s ease;
+}
+
+.project-card--imaged:hover .project-image img {
+  transform: scale(1.04);
+}
+
+/* 图片上叠的微妙渐变压暗，让文字更易读（可选） */
+.project-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 60%,
+    rgba(15, 15, 18, 0.06) 100%
+  );
+  pointer-events: none;
+}
+
+.project-body {
+  padding: var(--space-5) var(--space-5) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  flex: 1 1 auto;
+}
+
+/* 响应式：平板 2 列，手机 1 列 */
+@media (max-width: 1024px) {
+  .projects-grid--imaged {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .projects-grid--imaged {
+    grid-template-columns: 1fr;
+  }
+  .project-body {
+    padding: var(--space-4);
+  }
+}
