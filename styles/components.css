@@ -1206,16 +1206,51 @@
 .timeline-head {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-3) var(--space-5);
-  align-items: baseline;
-  justify-content: space-between;
+  gap: var(--space-3) var(--space-4);
+  align-items: center;
+  justify-content: flex-start;
   margin-bottom: var(--space-3);
 }
+
+/* 公司 logo 容器 —— 圆角小卡 */
+.timeline-logo {
+  flex: 0 0 auto;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid var(--color-line);
+  box-shadow: 0 4px 12px -6px rgba(15, 15, 18, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.timeline-logo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px -6px rgba(15, 15, 18, 0.25);
+}
+
+.timeline-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 各品牌 logo 卡的细节微调（保留品牌色感） */
+.timeline-logo[data-brand="banma"]     { background: #2BCB7A; }
+.timeline-logo[data-brand="kuaishou"]  { background: #FF7C00; }
+.timeline-logo[data-brand="zuoyebang"] { background: #FFE249; }
+.timeline-logo[data-brand="mafengwo"]  { background: #FFD133; }
+.timeline-logo[data-brand="suning"]    { background: #FFC400; }
 
 .timeline-period {
   font-family: var(--font-mono-num);
   font-size: var(--fs-sm);
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-magenta);
   letter-spacing: 0.04em;
 }
@@ -1236,12 +1271,14 @@
 .timeline-company {
   font-size: var(--fs-h3);
   line-height: 1.25;
+  font-weight: 800;
 }
 
 .timeline-role {
   font-size: var(--fs-sm);
   color: var(--color-ink-3);
   margin-top: 0.25rem;
+  font-weight: 700;
 }
 
 .timeline-summary {

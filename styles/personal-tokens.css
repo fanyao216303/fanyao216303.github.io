@@ -648,6 +648,7 @@ h1, h2, h3, h4, h5, h6,
 
 .timeline-period {
   color: var(--color-gold);
+  font-weight: 700;
 }
 
 .timeline-current-pill {
@@ -657,10 +658,12 @@ h1, h2, h3, h4, h5, h6,
 
 .timeline-company {
   color: var(--color-ink);
+  font-weight: 800;
 }
 
 .timeline-role {
   color: var(--color-ink-3);
+  font-weight: 700;
 }
 
 .timeline-summary {
