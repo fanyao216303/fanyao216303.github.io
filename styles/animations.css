@@ -1,0 +1,84 @@
+/* =========================================================================
+   Animations — 入场 / hover / 装饰动画
+   ========================================================================= */
+
+/* ----- Hero 入场 ----- */
+.hero-meta,
+.hero-title,
+.hero-sub,
+.hero-actions,
+.hero-contact {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: heroIn 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+.hero-meta     { animation-delay: 0.05s; }
+.hero-title    { animation-delay: 0.18s; }
+.hero-sub      { animation-delay: 0.36s; }
+.hero-actions  { animation-delay: 0.50s; }
+.hero-contact  { animation-delay: 0.62s; }
+
+@keyframes heroIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ----- 滚动入场（由 JS 添加 .is-in 触发） ----- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
+              transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 子元素错落 */
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
+              transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.reveal-stagger.is-in > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-stagger.is-in > *:nth-child(1) { transition-delay: 0.05s; }
+.reveal-stagger.is-in > *:nth-child(2) { transition-delay: 0.13s; }
+.reveal-stagger.is-in > *:nth-child(3) { transition-delay: 0.21s; }
+.reveal-stagger.is-in > *:nth-child(4) { transition-delay: 0.29s; }
+.reveal-stagger.is-in > *:nth-child(5) { transition-delay: 0.37s; }
+.reveal-stagger.is-in > *:nth-child(6) { transition-delay: 0.45s; }
+
+/* 数字看板 count-up 完成后微弹 */
+.stat-number.is-counted {
+  animation: numPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes numPop {
+  0%   { transform: scale(1); }
+  60%  { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
+
+/* 渐变色带横向流动（footer / hero 底部） */
+.hero-band,
+.footer-block::before {
+  background-size: 200% 100%;
+  animation: bandFlow 8s linear infinite;
+}
+
+@keyframes bandFlow {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}

@@ -1,0 +1,11 @@
+.DS_Store
+*.log
+.idea/
+.vscode/
+node_modules/
+
+# 不要把以下临时/原始文件传到公网仓库
+assets/*.HEIC
+assets/*.heic
+assets/1.jpg.png
+assets/wechat_*.jpg
