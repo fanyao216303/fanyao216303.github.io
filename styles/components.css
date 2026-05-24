@@ -605,6 +605,28 @@
   margin-bottom: var(--space-3);
 }
 
+/* 加粗变体：用更显眼的字色和字重突出基本信息 */
+.hero-meta--bold {
+  font-size: var(--fs-body);
+  font-weight: 600;
+  color: var(--color-ink);
+  letter-spacing: 0.01em;
+}
+
+.hero-meta--bold .dot {
+  background: var(--color-magenta);
+}
+
+/* 副标题里的强调数字 */
+.hero-sub strong {
+  color: var(--color-ink);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  background: linear-gradient(180deg, transparent 65%, rgba(255, 46, 99, 0.18) 65%);
+  padding: 0 0.15em;
+  border-radius: 2px;
+}
+
 .hero-meta .dot {
   width: 6px;
   height: 6px;

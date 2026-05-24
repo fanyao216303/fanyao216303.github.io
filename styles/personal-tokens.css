@@ -331,6 +331,17 @@ h1, h2, h3, h4, h5, h6,
   background: var(--color-gold);
 }
 
+/* 加粗变体：酒红版的 hero-meta--bold 用白字 + 酒红圆点 */
+.hero-meta--bold {
+  color: var(--color-ink);
+}
+
+/* 副标题强调数字：酒红色高亮底 */
+.hero-sub strong {
+  color: var(--color-ink);
+  background: linear-gradient(180deg, transparent 65%, rgba(162, 29, 38, 0.45) 65%);
+}
+
 .hero-title {
   color: var(--color-ink);
 }
