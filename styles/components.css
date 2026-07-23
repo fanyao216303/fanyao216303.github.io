@@ -2204,7 +2204,7 @@
 }
 
 .career-rail-flow-label::before {
-  content: "now ‹‹‹  ";
+  content: "‹‹‹  ";
   color: var(--color-magenta);
   font-weight: 700;
 }
